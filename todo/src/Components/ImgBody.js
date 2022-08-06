@@ -1,6 +1,16 @@
 import React from 'react'
 import '../Styles/Body.css';
-export default function ImgBody() {
+import { ethers } from 'ethers';
+import { Address } from '../Utils/BlockAddress';
+import Abi from '../Utils/Abi.json';
+
+export default function ImgBody({data,signer}) {
+
+  const del =()=>{
+  
+    const contract=new ethers.Contract(Address,Abi.abi,signer);
+    contract.del(parseInt(data.id._hex));
+}
   return (
     <>
       <div className="img-main mx-2 my-2">
@@ -8,10 +18,10 @@ export default function ImgBody() {
       <h6>11/02/2001</h6>
     </div>
     <div className="container-fluid img">
-      <img src="https://tse1.mm.bing.net/th?id=OIP.1YM53mG10H_U25iPjop83QHaEo&pid=Api&P=0" alt style={{"height":"150px","width":"100%"}} />
+      <img src={`https://ipfs.infura.io/ipfs/${data.img}`} alt style={{"height":"150px","width":"100%"}} />
     </div>
     <div className="container-fluid del my-1">
-      <button><i className="fa fa-trash-o" /></button>
+      <button onClick={del}><i className="fa fa-trash-o" /></button>
     </div>
   </div>
     </>

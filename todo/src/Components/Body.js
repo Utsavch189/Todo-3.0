@@ -11,6 +11,7 @@ import Abi from '../Utils/Abi.json';
 export default function Body({signer}) {
 
   const[text,setText]=useState([])
+  const[img,setImg]=useState([])
   const[show,setShow]=useState(true)
 
   const getTxt=async()=>{
@@ -20,6 +21,10 @@ export default function Body({signer}) {
       if(res[i].todo!==""){
         
         setText(s=>[...s,res[i]])
+        setShow(false)
+      }
+      else if(res[i].img!==""){
+        setImg(s=>[...s,res[i]])
         setShow(false)
       }
     }
@@ -42,7 +47,7 @@ console.log(text)
 </div>):(<></>)
 }
 {text.length!==0? text.map((i)=><TxtBody signer={signer} key={i.id._hex} data={i}/>):(<></>)}
-
+{img.length!==0? img.map((i)=><ImgBody signer={signer} key={i.id._hex} data={i}/>):(<></>)}
 
 </div>
 
