@@ -1,0 +1,86 @@
+{
+    "abi": [{
+            "anonymous": false,
+            "inputs": [{
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "date",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "sender",
+                    "type": "address"
+                }
+            ],
+            "name": "AddTodo",
+            "type": "event"
+        },
+        {
+            "inputs": [{
+                    "internalType": "string",
+                    "name": "_todo",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_img",
+                    "type": "string"
+                }
+            ],
+            "name": "add",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [{
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }],
+            "name": "del",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "get",
+            "outputs": [{
+                "components": [{
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "sender",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "todo",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "img",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "date",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Todo.Todos[]",
+                "name": "",
+                "type": "tuple[]"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+}

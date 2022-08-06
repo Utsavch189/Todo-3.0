@@ -1,0 +1,32 @@
+.img-main {
+    width: 360px;
+    height: 220px;
+    background-color: rgb(241, 238, 234);
+}
+
+.text {
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.img {
+    height: 150px;
+}
+
+.text-main {
+    width: 360px;
+    height: 220px;
+    background-color: rgb(241, 238, 234);
+}
+
+.text-p {
+    height: 150px;
+}
+
+.del {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: flex-end;
+}
