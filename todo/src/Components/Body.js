@@ -11,6 +11,7 @@ import Abi from '../Utils/Abi.json';
 export default function Body({signer}) {
 
   const[text,setText]=useState([])
+  const[show,setShow]=useState(true)
 
   const getTxt=async()=>{
     const contract=new ethers.Contract(Address,Abi.abi,signer);
@@ -18,7 +19,8 @@ export default function Body({signer}) {
     for(let i=0;i<res.length;i++){
       if(res[i].todo!==""){
         
-        setText([res[i]])
+        setText(s=>[...s,res[i]])
+        setShow(false)
       }
     }
     
@@ -29,13 +31,16 @@ export default function Body({signer}) {
 useEffect(()=>{getTxt()},[])
  
 
-
+console.log(text)
 
   return (
     <>
 <div className="container-fluid my-2" style={{"height":"80vh","display":"flex","-webkit-box-pack":"space-around","-webkit-justify-content":"space-around","-ms-flex-pack":"space-around","justify-content":"space-around","-webkit-flex-wrap":"wrap","-ms-flex-wrap":"wrap","flex-wrap":"wrap","position":"absolute","zIndex":"1000","overflowY":"scroll"}}>
-
-
+{show?(
+<div className="container-fluid" style={{"height":"30px","display":"flex","alignItems":"center","justifyContent":"center"}}>
+  <button onClick={getTxt} className="btn btn-dark">Show Todo</button>
+</div>):(<></>)
+}
 {text.length!==0? text.map((i)=><TxtBody signer={signer} key={i.id._hex} data={i}/>):(<></>)}
 
 
