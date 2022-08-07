@@ -43,11 +43,11 @@ export default function AddImg({signer}) {
   return (
     <>
     {ipfs!==""?(<Success success={"Ipfs Set Successfully"}/>):(<></>)}
-    <div className="img-mains mx-2 my-2" style={{"width":"100%","height":"220px","backgroundColor":"rgb(241, 238, 234)"}}>
+    <div className="img-mains mx-2 my-2" style={{"width":"100%","height":"220px","backgroundColor":"rgb(241, 238, 234)","boxShadow":"5px 5px 5px gray"}}>
   <div className="container uploadphoto my-3">
     {image===""?(
       <>
-    <input type="file" className="pic" onChange={img}/>
+    <input type="file" className="pic" onChange={img} style={{}}/>
     <i className="fa fa-plus" style={{"font-size":"25px"}} /></>):(
       <img className="pics" src={image}/>
     )

@@ -21,8 +21,8 @@ export default function AddTodo({signer}) {
     {!is ?(
     <div style={{"width":"100%","height":"100vh","display":"flex","justifyContent":"flex-end","flexDirection":"column","alignItems":"flex-end"}}>
 
-    <div className="container-fluid" style={{"height":"132px","position":"static","background-color":"rgb(215, 228, 215)","display":"flex","-webkit-align-items":"center","-webkit-box-align":"center","-ms-flex-align":"center","align-items":"center","-webkit-box-pack":"center","-webkit-justify-content":"center","-ms-flex-pack":"center","justify-content":"center","position":"absolute","zIndex":"1000"}}>
-        <button onClick={()=>setIs(true)} style={{"width":"75px","height":"75px","border-radius":"50%","background-color":"antiquewhite","border":"none"}}><i className="fa fa-plus" style={{"font-size":"26px"}} /></button>
+    <div className="container-fluid" style={{"height":"132px","boxShadow":"0px 0px 8px 3px gray","position":"static","background-color":"rgb(215, 228, 215)","backdropFilter":"blur(10px)","display":"flex","-webkit-align-items":"center","-webkit-box-align":"center","-ms-flex-align":"center","align-items":"center","-webkit-box-pack":"center","-webkit-justify-content":"center","-ms-flex-pack":"center","justify-content":"center","position":"absolute","zIndex":"1000"}}>
+        <button onClick={()=>setIs(true)} style={{"width":"75px","height":"75px","border-radius":"50%","background-color":"rgb(217, 184, 142)","border":"none"}}><i className="fa fa-plus" style={{"font-size":"26px"}} /></button>
     </div>
 
     </div>

@@ -13,13 +13,13 @@ export default function ImgBody({data,signer}) {
 }
   return (
     <>
-      <div className="img-main mx-2 my-2">
+      <div className="img-main mx-2 my-2" style={{"boxShadow":"5px 5px 5px gray"}}>
     <div className="container-fluid text">
       <h6>{data.date._hex}</h6>
     </div>
     <div className="container-fluid img">
-      <img src={`https://ipfs.infura.io/ipfs/${data.img}`} alt style={{"height":"270px","width":"100%"}} />
-    </div><br /><br /><br /><br /><br />
+      <img src={`https://ipfs.infura.io/ipfs/${data.img}`} alt style={{"height":"300px","width":"100%"}} />
+    </div><br /><br /><br /><br /><br /><br /><br />
     <div className="container-fluid del my-2">
       <button onClick={del}><i className="fa fa-trash-o" /></button>
     </div>

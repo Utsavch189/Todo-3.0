@@ -15,7 +15,7 @@ export default function TxtBody({data,signer}) {
 
   return (
     <>
-      <div className="text-main mx-2 my-2">
+      <div className="text-main mx-2 my-2" style={{"boxShadow":"5px 5px 5px gray"}}>
     <div className="container-fluid text">
       <h6>{data.date._hex}</h6>
     </div>

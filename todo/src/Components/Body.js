@@ -5,10 +5,11 @@ import TxtBody from './TxtBody';
 import { ethers } from 'ethers';
 import { Address } from '../Utils/BlockAddress';
 import Abi from '../Utils/Abi.json';
+import First from './First';
 
 
 
-export default function Body({signer}) {
+export default function Body({signer,bal}) {
 
   const[text,setText]=useState([])
   const[img,setImg]=useState([])
@@ -20,11 +21,11 @@ export default function Body({signer}) {
     for(let i=0;i<res.length;i++){
       if(res[i].todo!==""){
         
-        setText(s=>[...s,res[i]])
+        setText(s=>[res[i],...s])
         setShow(false)
       }
       else if(res[i].img!==""){
-        setImg(s=>[...s,res[i]])
+        setImg(s=>[res[i],...s])
         setShow(false)
       }
     }
@@ -41,10 +42,12 @@ console.log(text)
   return (
     <>
 <div className="container-fluid my-2" style={{"height":"80vh","display":"flex","-webkit-box-pack":"space-around","-webkit-justify-content":"space-around","-ms-flex-pack":"space-around","justify-content":"space-around","-webkit-flex-wrap":"wrap","-ms-flex-wrap":"wrap","flex-wrap":"wrap","position":"absolute","zIndex":"1000","overflowY":"scroll"}}>
-{show?(
+{show?(<>
 <div className="container-fluid" style={{"height":"30px","display":"flex","alignItems":"center","justifyContent":"center"}}>
   <button onClick={getTxt} className="btn btn-dark">Show Todo</button>
-</div>):(<></>)
+</div>
+<First bal={bal}/>
+</>):(<></>)
 }
 {text.length!==0? text.map((i)=><TxtBody signer={signer} key={i.id._hex} data={i}/>):(<></>)}
 {img.length!==0? img.map((i)=><ImgBody signer={signer} key={i.id._hex} data={i}/>):(<></>)}

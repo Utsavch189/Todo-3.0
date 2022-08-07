@@ -17,7 +17,7 @@ export default function AddTxt({signer}) {
   return (
     <>
    
-    <div className="text-mains mx-2 my-4" style={{"width":"100%","height":"220px","backgroundColor":"rgb(241, 238, 234)"}}>
+    <div className="text-mains mx-2 my-4" style={{"width":"100%","height":"220px","backgroundColor":"rgb(241, 238, 234)","boxShadow":"5px 5px 5px gray"}}>
   <div className="container my-2" style={{"width":"100%","height":"150px"}}>
     <textarea style={{"width":"80%","height":"150px"}} defaultValue={""} value={val} onChange={(e)=>setVal(e.target.value)}/>
   </div>

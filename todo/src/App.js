@@ -10,6 +10,7 @@ function App() {
   const [address,setAddress]=useState("");
   const[error,setError]=useState("");
   const [signer,setSigner]=useState(null);
+  const[balance,setBalance]=useState(null);
 
   
 
@@ -25,6 +26,11 @@ function App() {
       setAddress(ac[0]);
       const provider=new ethers.providers.Web3Provider(window.ethereum);
       setSigner(provider.getSigner());
+
+      
+      const balance = await provider.getBalance(ac[0]);
+      const balanceInEth = parseFloat(ethers.utils.formatEther(balance)).toFixed(3);
+      setBalance(balanceInEth);
     }
     else{
       setError("Not in currect network");
@@ -37,7 +43,7 @@ function App() {
   return (
 <>
 {error!==""?(<><Error error={error}/></>):(<></>)}
-<Body signer={signer}/>
+<Body signer={signer} bal={balance}/>
 
 <AddTodo signer={signer}/>
 
